@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import messagebox  
 from collections import deque
 import random
 import time
@@ -6,7 +7,7 @@ import time
 class MazeSolverGUI:
     def __init__(self, master, maze_size):
         self.master = master
-        self.master.title("Maze Solver")
+        self.master.title("Maze Navigator")
 
         self.maze_size = maze_size
         self.maze = [[0] * maze_size for _ in range(maze_size)]
@@ -55,6 +56,9 @@ class MazeSolverGUI:
             self.canvas.create_rectangle(j*20, i*20, (j+1)*20, (i+1)*20, fill=color)
             self.master.update()
             time.sleep(0.1)
+
+      
+        messagebox.showinfo("Destination Reached", "Congratulations! You reached the destination.")
 
 def main():
     maze_size = 20
